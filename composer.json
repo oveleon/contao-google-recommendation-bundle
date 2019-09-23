@@ -1,0 +1,44 @@
+{
+    "name": "oveleon/contao-google-recommendation-bundle",
+    "type": "contao-bundle",
+    "description": "Google Places API integration for Contao Recommendation Bundle",
+    "keywords": ["contao","google-recommendation-bundle"],
+    "homepage": "https://www.oveleon.de/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oveleon",
+            "homepage": "https://oveleon.de/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php":"^5.6 || ^7.0",
+        "contao/core-bundle":"^4.4",
+        "oveleon/contao-recommendation-bundle":"^1.0"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0"
+    },
+    "conflict": {
+        "contao/core": "*",
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Oveleon\\ContaoGoogleRecommendationBundle\\": "src/"
+        },
+        "classmap": [
+            "src/Resources/contao/"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/",
+            "src/Resources/contao/templates/"
+        ]
+    },
+    "extra": {
+        "contao-manager-plugin": "Oveleon\\ContaoGoogleRecommendationBundle\\ContaoManager\\Plugin"
+    }
+}
