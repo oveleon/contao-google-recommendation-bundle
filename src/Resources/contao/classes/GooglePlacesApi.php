@@ -50,7 +50,7 @@ class GooglePlacesApi extends \Frontend
                     $objRecommendation->date = $review->time;
                     $objRecommendation->time = $review->time;
                     $objRecommendation->rating = $review->rating;
-                    $objRecommendation->text = $review->text;
+                    $objRecommendation->text = '<p>'.$review->text.'</p>';
                     $objRecommendation->imageUrl = $review->profile_photo_url;
                     $objRecommendation->googleAuthorUrl = $review->author_url;
                     $objRecommendation->published = 1;
