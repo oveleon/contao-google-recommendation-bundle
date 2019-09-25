@@ -14,12 +14,12 @@
         <target>Google API Token</target>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googleApiToken.1">
-        <source>Please enter the Google API Token.</source>
-        <target>Bitte geben Sie den Google API Token ein.</target>
+        <source>Please enter your Google API Token.</source>
+        <target>Bitte geben Sie Ihren Google API Token ein.</target>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googlePlaceId.0">
-        <source>Google Place ID</source>
-        <target>Google Place ID</target>
+        <source>Google Places ID</source>
+        <target>Google Places ID</target>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googlePlaceId.1">
         <source>Please enter the Google Places ID.</source>
