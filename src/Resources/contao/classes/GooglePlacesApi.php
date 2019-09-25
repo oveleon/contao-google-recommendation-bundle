@@ -38,7 +38,7 @@ class GooglePlacesApi extends \Frontend
 
                 foreach ($arrContent->result->reviews as $review)
                 {
-                    if ($this->recordExists($objRecommendations, $review->author_url) && !$review->text)
+                    if ($this->recordExists($objRecommendations, $review->author_url) || !$review->text)
                     {
                         continue;
                     }
