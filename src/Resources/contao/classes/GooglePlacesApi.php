@@ -38,8 +38,8 @@ class GooglePlacesApi extends \Frontend
 
                 foreach ($arrContent->result->reviews as $review)
                 {
-                    // Skip if record and text exist
-                    if ($this->recordExists($objRecommendations, $review->author_url) || !$review->text)
+                    // Skip if author url or text is empty or record already exists
+                    if (!$review->author_url || !$review->text || $this->recordExists($objRecommendations, $review->author_url))
                     {
                         continue;
                     }
