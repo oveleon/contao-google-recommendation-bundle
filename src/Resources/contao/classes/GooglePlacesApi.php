@@ -19,7 +19,7 @@ class GooglePlacesApi extends \Frontend
 {
     public function run()
     {
-        $objRecommendationArchive = RecommendationArchiveModel::findBy(["tl_recommendation_archive.syncWithGoogle=1"]);
+        $objRecommendationArchive = RecommendationArchiveModel::findBy(["tl_recommendation_archive.syncWithGoogle=1"], null);
 
         if ($objRecommendationArchive === null)
         {
@@ -28,7 +28,7 @@ class GooglePlacesApi extends \Frontend
 
         while ($objRecommendationArchive->next())
         {
-            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?place_id='.$objRecommendationArchive->googlePlaceId.'&fields=rating,user_ratings_total,review&key='.$objRecommendationArchive->googleApiToken;
+            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?language='.$objRecommendationArchive->syncLanguage.'&place_id='.$objRecommendationArchive->googlePlaceId.'&fields=rating,user_ratings_total,review&key='.$objRecommendationArchive->googleApiToken;
 
             $arrContent = json_decode($this->getFileContent($strSyncUrl));
 
