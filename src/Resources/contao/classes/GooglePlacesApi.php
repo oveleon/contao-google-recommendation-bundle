@@ -19,7 +19,7 @@ class GooglePlacesApi extends \Frontend
 {
     public function run()
     {
-        $objRecommendationArchive = RecommendationArchiveModel::findBySyncWithGoogle(1);
+        $objRecommendationArchive = RecommendationArchiveModel::findBy(["tl_recommendation_archive.syncWithGoogle=1"]);
 
         if ($objRecommendationArchive === null)
         {
