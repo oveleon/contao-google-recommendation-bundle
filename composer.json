@@ -3,7 +3,7 @@
     "type": "contao-bundle",
     "description": "Google Places API integration for Contao Recommendation Bundle",
     "keywords": ["contao","google-recommendation-bundle"],
-    "homepage": "https://www.oveleon.de/",
+    "homepage": "https://www.oveleon.de/recommendation.html",
     "license": "MIT",
     "authors": [
         {
