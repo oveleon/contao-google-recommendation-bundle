@@ -32,6 +32,11 @@ class GooglePlacesApi extends \Frontend
 
             $arrContent = json_decode($this->getFileContent($strSyncUrl));
 
+            if ($arrContent && $arrContent->status !== 'OK')
+            {
+                $this->log($arrContent->error_message, __METHOD__, TL_ERROR);
+            }
+
             if ($arrContent && $arrContent->result && is_array($arrContent->result->reviews))
             {
                 $objRecommendations = RecommendationModel::findByPid($objRecommendationArchive->id);
