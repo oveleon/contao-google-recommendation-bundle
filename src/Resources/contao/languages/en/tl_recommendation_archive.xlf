@@ -1,0 +1,34 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="src/Resources/contao/languages/en/tl_recommendation_archive.php" source-language="en">
+    <body>
+      <trans-unit id="tl_recommendation_archive.syncWithGoogle.0">
+        <source>Sync with Google</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.syncWithGoogle.1">
+        <source>Sync with Google Places API.</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.googleApiToken.0">
+        <source>Google API Token</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.googleApiToken.1">
+        <source>Please enter your Google API Token.</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.googlePlaceId.0">
+        <source>Google Places ID</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.googlePlaceId.1">
+        <source>Please enter the Google Places ID.</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.syncLanguage.0">
+        <source>Language</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.syncLanguage.1">
+        <source>Please specify the language in which Google recommendations should be synchronized.</source>
+      </trans-unit>
+
+      <trans-unit id="tl_recommendation_archive.google_legend">
+        <source>Google</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

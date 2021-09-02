@@ -7,6 +7,9 @@
 
 namespace Oveleon\ContaoGoogleRecommendationBundle;
 
+use Contao\Environment;
+use Contao\Input;
+use Contao\Message;
 use Oveleon\ContaoRecommendationBundle\RecommendationArchiveModel;
 use Oveleon\ContaoRecommendationBundle\RecommendationModel;
 
@@ -17,9 +20,16 @@ use Oveleon\ContaoRecommendationBundle\RecommendationModel;
  */
 class GooglePlacesApi extends \Frontend
 {
-    public function run()
+    public function run($arrIds=array())
     {
-        $objRecommendationArchive = RecommendationArchiveModel::findBy(["tl_recommendation_archive.syncWithGoogle=1"], null);
+        if(count($arrIds) === 0)
+        {
+            $objRecommendationArchive = RecommendationArchiveModel::findBy(["tl_recommendation_archive.syncWithGoogle=1"], null);
+        }
+        else
+        {
+            $objRecommendationArchive = RecommendationArchiveModel::findMultipleByIds($arrIds);
+        }
 
         if ($objRecommendationArchive === null)
         {
@@ -28,7 +38,8 @@ class GooglePlacesApi extends \Frontend
 
         while ($objRecommendationArchive->next())
         {
-            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?language='.$objRecommendationArchive->syncLanguage.'&place_id='.$objRecommendationArchive->googlePlaceId.'&fields=rating,user_ratings_total,review&key='.$objRecommendationArchive->googleApiToken;
+            //$strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?language='.$objRecommendationArchive->syncLanguage.'&place_id='.$objRecommendationArchive->googlePlaceId.'&fields=rating,user_ratings_total,review&key='.$objRecommendationArchive->googleApiToken;
+            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?language='.$objRecommendationArchive->syncLanguage.'&place_id='.$objRecommendationArchive->googlePlaceId.'&fields=review&key='.$objRecommendationArchive->googleApiToken;
 
             $arrContent = json_decode($this->getFileContent($strSyncUrl));
 
@@ -65,6 +76,15 @@ class GooglePlacesApi extends \Frontend
                 }
             }
         }
+    }
+
+    public function syncWithGoogle()
+    {
+        $this->run([Input::get('id')]);
+
+        Message::addInfo(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSynced'], Input::get('id')));
+
+        $this->redirect($this->getReferer());
     }
 
     protected function getFileContent($url)

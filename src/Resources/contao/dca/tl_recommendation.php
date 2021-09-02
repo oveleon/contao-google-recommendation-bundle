@@ -5,6 +5,13 @@
  * (c) https://www.oveleon.de/
  */
 
+$GLOBALS['TL_DCA']['tl_recommendation']['list']['global_operations']['startSync'] = array
+(
+    'href'                => 'key=startSync',
+	'class'				  => '',
+    'icon'                => 'sync.svg'
+);
+
 $GLOBALS['TL_DCA']['tl_recommendation']['fields']['googleAuthorUrl'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_recommendation']['googleAuthorUrl'],

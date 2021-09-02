@@ -38,9 +38,18 @@ $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['syncLanguage'] = arra
     'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
     'sql'                     => "varchar(8) NOT NULL default 'en'"
 );
+/*$GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['hideEmptyText'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_recommendation_archive']['syncWithGoogle'],
+    'exclude'                 => true,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'m12 w50'),
+    'sql'                     => "char(1) NOT NULL default ''"
+);*/
 
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['palettes']['__selector__'][] = 'syncWithGoogle';
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['subpalettes']['syncWithGoogle'] = 'googleApiToken,googlePlaceId,syncLanguage';
+//$GLOBALS['TL_DCA']['tl_recommendation_archive']['subpalettes']['syncWithGoogle'] = 'googleApiToken,googlePlaceId,syncLanguage,hideEmptyText';
 
 // Extend the default palette
 Contao\CoreBundle\DataContainer\PaletteManipulator::create()
