@@ -1,0 +1,438 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="src/Resources/contao/languages/en/tl_recommendation_languages_languages.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_recommendation_languages.af">
+        <source>Afrikaans</source>
+        <target>Afrikaans</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sq">
+        <source>Albanian</source>
+        <target>Albanisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.am">
+        <source>Amharic</source>
+        <target>Amharisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ar">
+        <source>Arabic</source>
+        <target>Arabisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.hy">
+        <source>Armenian</source>
+        <target>Armenisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.az">
+        <source>Azerbaijani</source>
+        <target>Aserbaidschanisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.eu">
+        <source>Basque</source>
+        <target>Baskisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.be">
+        <source>Belarusian</source>
+        <target>Belarussisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.bn">
+        <source>Bengali</source>
+        <target>Bengalisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.bs">
+        <source>Bosnian</source>
+        <target>Bosnisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.bg">
+        <source>Bulgarian</source>
+        <target>Bulgarisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ca">
+        <source>Catalan</source>
+        <target>Katalanisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ceb">
+        <source>Cebuano</source>
+        <target>Cebuano</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.zh-TW">
+        <source>Chinese (Simplified)</source>
+        <target>Chinesisch (vereinfacht)</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.zh-TW">
+        <source>Chinese (Traditional)</source>
+        <target>Chinesisch (traditionell)</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.co">
+        <source>Corsican</source>
+        <target>Korsisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.hr">
+        <source>Croatian</source>
+        <target>Kroatisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.cs">
+        <source>Czech</source>
+        <target>Tschechisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.da">
+        <source>Danish</source>
+        <target>Dänisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.nl">
+        <source>Dutch</source>
+        <target>Niederländisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.en">
+        <source>English</source>
+        <target>Englisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.eo">
+        <source>Esperanto</source>
+        <target>Esperanto</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.et">
+        <source>Estonian</source>
+        <target>Estnisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.fi">
+        <source>Finnish</source>
+        <target>Finnisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.fr">
+        <source>French</source>
+        <target>Französisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.fy">
+        <source>Frisian</source>
+        <target>Friesisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.gl">
+        <source>Galician</source>
+        <target>Galicisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ka">
+        <source>Georgian</source>
+        <target>Georgisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.de">
+        <source>German</source>
+        <target>Deutsch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.el">
+        <source>Greek</source>
+        <target>Griechisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.gu">
+        <source>Gujarati</source>
+        <target>Gujarati</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ht">
+        <source>Haitian Creole</source>
+        <target>Kreolisch (Haiti)</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ha">
+        <source>Hausa</source>
+        <target>Haussa</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.haw">
+        <source>Hawaiian</source>
+        <target>Hawaiianisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.he">
+        <source>Hebrew</source>
+        <target>Hebräisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.hi">
+        <source>Hindi</source>
+        <target>Hindi</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.hmn">
+        <source>Hmong</source>
+        <target>Hmong</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.hu">
+        <source>Hungarian</source>
+        <target>Ungarisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.is">
+        <source>Icelandic</source>
+        <target>Isländisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ig">
+        <source>Igbo</source>
+        <target>Igbo</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.id">
+        <source>Indonesian</source>
+        <target>Indonesisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ga">
+        <source>Irish</source>
+        <target>Irisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.it">
+        <source>Italian</source>
+        <target>Italienisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ja">
+        <source>Japanese</source>
+        <target>Japanisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.jv">
+        <source>Javanese</source>
+        <target>Javanisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.kn">
+        <source>Kannada</source>
+        <target>Kannada</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.kk">
+        <source>Kazakh</source>
+        <target>Kasachisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.km">
+        <source>Khmer</source>
+        <target>Khmer</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.rw">
+        <source>Kinyarwanda</source>
+        <target>Kinyarwanda</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ko">
+        <source>Korean</source>
+        <target>Koreanisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ku">
+        <source>Kurdish</source>
+        <target>Kurdisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ky">
+        <source>Kyrgyz</source>
+        <target>Kirgisisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.lo">
+        <source>Lao</source>
+        <target>Lao</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.lv">
+        <source>Latvian</source>
+        <target>Lettisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.lt">
+        <source>Lithuanian</source>
+        <target>Litauisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.lb">
+        <source>Luxembourgish</source>
+        <target>Luxemburgisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mk">
+        <source>Macedonian</source>
+        <target>Mazedonisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mg">
+        <source>Malagasy</source>
+        <target>Madagạssisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ms">
+        <source>Malay</source>
+        <target>Malaiisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ml">
+        <source>Malayalam</source>
+        <target>Malayalam</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mt">
+        <source>Maltese</source>
+        <target>Maltesisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mi">
+        <source>Maori</source>
+        <target>Maori</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mr">
+        <source>Marathi</source>
+        <target>Marathi</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mn">
+        <source>Mongolian</source>
+        <target>Mongolisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.my">
+        <source>Myanmar (Burmese)</source>
+        <target>Myanmar (Birmanisch)</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ne">
+        <source>Nepali</source>
+        <target>Nepalesisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.no">
+        <source>Norwegian</source>
+        <target>Norwegisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ny">
+        <source>Nyanja (Chichewa)</source>
+        <target>Nyanja (Chichewa)</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.or">
+        <source>Odia (Oriya)</source>
+        <target>Odia (Oriya)</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ps">
+        <source>Pashto</source>
+        <target>Paschtunisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.fa">
+        <source>Persian</source>
+        <target>Persisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.pl">
+        <source>Polish</source>
+        <target>Polnisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.pt">
+        <source>Portuguese (Portugal, Brazil)</source>
+        <target>Portugiesisch (Portugal, Brasilien)</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.pa">
+        <source>Punjabi</source>
+        <target>Pandschabi</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ro">
+        <source>Romanian</source>
+        <target>Rumänisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ru">
+        <source>Russian</source>
+        <target>Russisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sm">
+        <source>Samoan</source>
+        <target>Samoanisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.gd">
+        <source>Scots Gaelic</source>
+        <target>Schottisches Gälisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sr">
+        <source>Serbian</source>
+        <target>Serbisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.st">
+        <source>Sesotho</source>
+        <target>Sesotho</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sn">
+        <source>Shona</source>
+        <target>Shona</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sd">
+        <source>Sindhi</source>
+        <target>Sindhi</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.si">
+        <source>Sinhala (Sinhalese)</source>
+        <target>Singhalesisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sk">
+        <source>Slovak</source>
+        <target>Slowakisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sl">
+        <source>Slovenian</source>
+        <target>Slowenisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.so">
+        <source>Somali</source>
+        <target>Somali</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.es">
+        <source>Spanish</source>
+        <target>Spanisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.su">
+        <source>Sundanese</source>
+        <target>Sundanesisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sw">
+        <source>Swahili</source>
+        <target>Swahili</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sv">
+        <source>Swedish</source>
+        <target>Schwedisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.tl">
+        <source>Tagalog (Filipino)</source>
+        <target>Tagalog (Philippinisch)</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.tg">
+        <source>Tajik</source>
+        <target>Tadschikisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ta">
+        <source>Tamil</source>
+        <target>Tamil</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.tt">
+        <source>Tatar</source>
+        <target>Tatarisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.te">
+        <source>Telugu</source>
+        <target>Telugu</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.th">
+        <source>Thai</source>
+        <target>Thai</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.tr">
+        <source>Turkish</source>
+        <target>Türkisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.tk">
+        <source>Turkmen</source>
+        <target>Turkmenisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.uk">
+        <source>Ukrainian</source>
+        <target>Ukrainisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ur">
+        <source>Urdu</source>
+        <target>Urdu</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ug">
+        <source>Uyghur</source>
+        <target>Uigurisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.uz">
+        <source>Uzbek</source>
+        <target>Usbekisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.vi">
+        <source>Vietnamese</source>
+        <target>Vietnamesisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.cy">
+        <source>Welsh</source>
+        <target>Walisisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.xh">
+        <source>Xhosa</source>
+        <target>Xhosa</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.yi">
+        <source>Yiddish</source>
+        <target>Jiddisch</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.yo">
+        <source>Yoruba</source>
+        <target>Yoruba</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.zu">
+        <source>Zulu</source>
+        <target>Zulu</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

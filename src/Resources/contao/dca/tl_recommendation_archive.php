@@ -4,7 +4,11 @@
  *
  * (c) https://www.oveleon.de/
  */
+	
+// Load language files
+Contao\System::loadLanguageFile('tl_recommendation_languages');
 
+// Add subpalettes
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['syncWithGoogle'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_recommendation_archive']['syncWithGoogle'],
@@ -34,22 +38,17 @@ $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['syncLanguage'] = arra
     'label'                   => &$GLOBALS['TL_LANG']['tl_recommendation_archive']['syncLanguage'],
     'exclude'                 => true,
     'inputType'               => 'select',
-    'options'                 => array('af', 'sq', 'am', 'ar', 'hy', 'az', 'hy', 'az', 'eu', 'be', 'bn', 'bs', 'bg', 'my', 'ca', 'zh', 'zh-CN', 'zh-HK', 'zh-TW', 'hr', 'cs', 'da', 'nl', 'en', 'en-AU', 'en-GB', 'et', 'fa', 'fi', 'fil', 'fr', 'fr-CA', 'gl', 'ka', 'de', 'el', 'gu', 'iw', 'hi', 'hu', 'is', 'id', 'it', 'ja', 'kn', 'kk', 'km', 'ko', 'ky', 'lo', 'lv', 'lt', 'mk', 'ms', 'ml', 'mr', 'mn', 'ne', 'no', 'pl', 'pt', 'pt-BR', 'pt-PT', 'pa', 'ro', 'ru', 'sr', 'si', 'sk', 'sl', 'es', 'es-419', 'sw', 'sv', 'ta', 'te', 'th', 'tr', 'uk', 'ur', 'uz', 'vi', 'zu'),
-    'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
-    'sql'                     => "varchar(8) NOT NULL default 'en'"
+	'options_callback' => static function ()
+	{
+		return array_keys($GLOBALS['TL_LANG']['tl_recommendation_languages']);
+	},
+	'reference'				  => &$GLOBALS['TL_LANG']['tl_recommendation_languages'],
+    'eval'                    => array('includeBlankOption'=>true, 'chosen'=>true,'tl_class'=>'w50'),
+    'sql'                     => "varchar(5) NOT NULL default ''"
 );
-/*$GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['hideEmptyText'] = array
-(
-    'label'                   => &$GLOBALS['TL_LANG']['tl_recommendation_archive']['syncWithGoogle'],
-    'exclude'                 => true,
-    'inputType'               => 'checkbox',
-    'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'m12 w50'),
-    'sql'                     => "char(1) NOT NULL default ''"
-);*/
 
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['palettes']['__selector__'][] = 'syncWithGoogle';
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['subpalettes']['syncWithGoogle'] = 'googleApiToken,googlePlaceId,syncLanguage';
-//$GLOBALS['TL_DCA']['tl_recommendation_archive']['subpalettes']['syncWithGoogle'] = 'googleApiToken,googlePlaceId,syncLanguage,hideEmptyText';
 
 // Extend the default palette
 Contao\CoreBundle\DataContainer\PaletteManipulator::create()
