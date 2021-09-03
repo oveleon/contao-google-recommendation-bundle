@@ -14,8 +14,11 @@
       <trans-unit id="tl_recommendation.google_legend">
         <source>Google</source>
       </trans-unit>
-      <trans-unit id="tl_recommendation.archiveSynced">
+      <trans-unit id="tl_recommendation.archiveSyncSuccess">
         <source>Archive ID %s was synced</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.archiveSyncFailed">
+        <source>Sync for Archive ID %s failed. Reason: %s</source>
       </trans-unit>
     </body>
   </file>

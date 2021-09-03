@@ -18,9 +18,13 @@
         <source>Google</source>
         <target>Google</target>
       </trans-unit>
-      <trans-unit id="tl_recommendation.archiveSynced">
+      <trans-unit id="tl_recommendation.archiveSyncSuccess">
         <source>Archive ID %s was synced</source>
         <target>Archiv ID %s wurde synchronisiert</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.archiveSyncFailed">
+        <source>Sync for Archive ID %s failed. Reason: %s</source>
+        <target>Synchronisation für Archiv ID %s fehlgeschlagen. Grund: %s</target>
       </trans-unit>
     </body>
   </file>

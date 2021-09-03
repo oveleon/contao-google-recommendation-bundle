@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of Oveleon Google Recommendation Bundle.
  *
@@ -7,97 +8,121 @@
 
 namespace Oveleon\ContaoGoogleRecommendationBundle;
 
-use Contao\Environment;
+use Contao\Frontend;
+use Contao\System;
+use Contao\CoreBundle\Monolog\ContaoContext;
 use Contao\Input;
 use Contao\Message;
-use Oveleon\ContaoRecommendationBundle\RecommendationArchiveModel;
 use Oveleon\ContaoRecommendationBundle\RecommendationModel;
+use Oveleon\ContaoRecommendationBundle\RecommendationArchiveModel;
+use Psr\Log\LogLevel;
+use Symfony\Component\HttpClient\HttpClient;
 
 /**
- * Updates google recommendation records by Google Places API
+ * Updates google reviews by Google Places API
  *
  * @author Fabian Ekert <fabian@oveleon.de>
+ * @author Sebastian Zoglowek <https://github.com/zoglo>
  */
-class GooglePlacesApi extends \Frontend
+class GooglePlacesApi extends Frontend
 {
-    public function run($arrIds=array())
+    public function getGoogleReviews(?array $arrIds = null)
     {
-        if(count($arrIds) === 0)
+		// Check if method is called by cronjob or not
+		$blnCron = false;
+		
+        if(null === $arrIds)
         {
-            $objRecommendationArchive = RecommendationArchiveModel::findBy(["tl_recommendation_archive.syncWithGoogle=1"], null);
+			$recTable = RecommendationArchiveModel::getTable();
+			
+            $objRecommendationArchives = RecommendationArchiveModel::findBy([
+				$recTable . ".syncWithGoogle=?"
+            ],[1]);
+			
+	        $blnCron = true;
         }
-        else
-        {
-            $objRecommendationArchive = RecommendationArchiveModel::findMultipleByIds($arrIds);
-        }
-
-        if ($objRecommendationArchive === null)
+        
+        $objRecommendationArchives = RecommendationArchiveModel::findMultipleByIds($arrIds);
+        
+        if (null === $objRecommendationArchives)
         {
             return;
         }
 
-        while ($objRecommendationArchive->next())
+		foreach($objRecommendationArchives as $objRecommendationArchive)
         {
-            //$strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?language='.$objRecommendationArchive->syncLanguage.'&place_id='.$objRecommendationArchive->googlePlaceId.'&fields=rating,user_ratings_total,review&key='.$objRecommendationArchive->googleApiToken;
-            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?language='.$objRecommendationArchive->syncLanguage.'&place_id='.$objRecommendationArchive->googlePlaceId.'&fields=review&key='.$objRecommendationArchive->googleApiToken;
-
-            $arrContent = json_decode($this->getFileContent($strSyncUrl));
-
-            if ($arrContent && $arrContent->status !== 'OK')
+            //$strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?language='.$objRecommendationArchive->syncLanguage.'&place_id='.$objRecommendationArchive->googlePlaceId.'&fields=reviews&key='.$objRecommendationArchive->googleApiToken;
+            $strSyncUrl = 'http://dev.contao49.local/files/theme/googleReviews.json';
+			
+			$client = HttpClient::create();
+	        $arrContent = $client->request('POST', $strSyncUrl)->toArray();
+	        $objContent = (object) $arrContent;
+			
+            if ($objContent && $objContent->status !== 'OK')
             {
-                $this->log($arrContent->error_message, __METHOD__, TL_ERROR);
+	            $logger = System::getContainer()->get('monolog.logger.contao');
+	            $logger->log(
+					LogLevel::ERROR,
+					'Recommendations for Archive with ID ' . $objRecommendationArchive->id . ' could not be synced - Reason: '. ($objContent->error_message ?? $objContent->status ?? 'Connection with Google Api could not be established.') ,
+					array('contao' => new ContaoContext(__METHOD__, TL_ERROR))
+	            );
+	
+				// Display an error if api call was not successful
+	            if(!$blnCron)
+	            {
+		            Message::addError(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncFailed'], Input::get('id'), ($objContent->error_message ?? $objContent->status ?? 'Connection with Google Api could not be established.')));
+	            }
+				
+				continue;
             }
 
-            if ($arrContent && $arrContent->result && is_array($arrContent->result->reviews))
+            if ($objContent && $objContent->result && (is_array($arrReviews = $objContent->result->reviews) ?? null))
             {
-                $objRecommendations = RecommendationModel::findByPid($objRecommendationArchive->id);
+	            $time = time();
+				
+	            $objRecommendations = RecommendationModel::findByPid($objRecommendationArchive->id);
+				
 
-                foreach ($arrContent->result->reviews as $review)
+                foreach ($arrReviews as $review)
                 {
                     // Skip if author url or text is empty or record already exists
+	                // ToDo: check records exists
                     if (!$review->author_url || !$review->text || $this->recordExists($objRecommendations, $review->author_url))
                     {
                         continue;
                     }
+	
+	                // Prepare the record
+	                $arrData = array
+	                (
+		                'tstamp'          => $time,
+		                'pid'             => $objRecommendationArchive->id,
+		                'author'          => $review->author_name,
+		                'date'            => $review->time,
+		                'time'            => $review->time,
+		                'text'            => '<p>' . $review->text . '</p>',
+		                'rating'          => $review->rating,
+						'imageUrl'        => $review->profile_photo_url,
+						'googleAuthorUrl' => $review->author_url,
+		                'published'       => 1
+	                );
 
                     $objRecommendation = new RecommendationModel();
-                    $objRecommendation->pid = $objRecommendationArchive->id;
-                    $objRecommendation->author = $review->author_name;
-                    $objRecommendation->tstamp = time();
-                    $objRecommendation->date = $review->time;
-                    $objRecommendation->time = $review->time;
-                    $objRecommendation->rating = $review->rating;
-                    $objRecommendation->text = '<p>'.$review->text.'</p>';
-                    $objRecommendation->imageUrl = $review->profile_photo_url;
-                    $objRecommendation->googleAuthorUrl = $review->author_url;
-                    $objRecommendation->published = 1;
-
-                    $objRecommendation->save();
+                    $objRecommendation->setRow($arrData)->save();
                 }
+	
+				// Sync happened successfully
+	            if(!$blnCron) {
+		            Message::addInfo(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncSuccess'], Input::get('id')));
+	            }
             }
         }
     }
 
     public function syncWithGoogle()
     {
-        $this->run([Input::get('id')]);
-
-        Message::addInfo(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSynced'], Input::get('id')));
-
+        $this->getGoogleReviews([Input::get('id')]);
         $this->redirect($this->getReferer());
-    }
-
-    protected function getFileContent($url)
-    {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_FAILONERROR, 1);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 15);
-        $content = curl_exec($ch);
-        curl_close($ch);
-        return $content;
     }
 
     /**
@@ -108,25 +133,14 @@ class GooglePlacesApi extends \Frontend
      *
      * @return boolean
      */
-    protected function recordExists($objRecommendations, $authorUrl)
+    protected function recordExists($objRecommendations, $authorUrl): bool
     {
-        if ($objRecommendations === null)
-        {
+		//ToDo: Update fetcheach
+        if (null === $objRecommendations)
             return false;
-        }
-
-        while ($objRecommendations->next())
-        {
-            if ($objRecommendations->googleAuthorUrl === $authorUrl)
-            {
-                $objRecommendations->reset();
-
-                return true;
-            }
-        }
-
-        $objRecommendations->reset();
-
-        return false;
+		
+		$arrUrls = $objRecommendations->fetchEach('googleAuthorUrl');
+		
+		return in_array($authorUrl, $arrUrls);
     }
 }
