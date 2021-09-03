@@ -45,9 +45,8 @@ class GooglePlacesApi extends Frontend
         $objRecommendationArchives = RecommendationArchiveModel::findMultipleByIds($arrIds);
         
         if (null === $objRecommendationArchives)
-        {
             return;
-        }
+
 
 		foreach($objRecommendationArchives as $objRecommendationArchive)
         {
@@ -76,7 +75,7 @@ class GooglePlacesApi extends Frontend
 				continue;
             }
 
-            if ($objContent && $objContent->result && (is_array($arrReviews = $objContent->result->reviews) ?? null))
+            if ($objContent && $objContent->result && (is_array($arrReviews = $objContent->result['reviews']) ?? null))
             {
 	            $time = time();
 				
@@ -86,24 +85,22 @@ class GooglePlacesApi extends Frontend
                 foreach ($arrReviews as $review)
                 {
                     // Skip if author url or text is empty or record already exists
-	                // ToDo: check records exists
-                    if (!$review->author_url || !$review->text || $this->recordExists($objRecommendations, $review->author_url))
-                    {
+                    if (!$review['author_url'] || !$review['text'] || $this->recordExists($objRecommendations, $review['author_url']))
                         continue;
-                    }
+
 	
 	                // Prepare the record
 	                $arrData = array
 	                (
 		                'tstamp'          => $time,
 		                'pid'             => $objRecommendationArchive->id,
-		                'author'          => $review->author_name,
-		                'date'            => $review->time,
-		                'time'            => $review->time,
-		                'text'            => '<p>' . $review->text . '</p>',
-		                'rating'          => $review->rating,
-						'imageUrl'        => $review->profile_photo_url,
-						'googleAuthorUrl' => $review->author_url,
+		                'author'          => $review['author_name'],
+		                'date'            => $review['time'],
+		                'time'            => $review['time'],
+		                'text'            => '<p>' . $review['text'] . '</p>',
+		                'rating'          => $review['rating'],
+						'imageUrl'        => $review['profile_photo_url'],
+						'googleAuthorUrl' => $review['author_url'],
 		                'published'       => 1
 	                );
 
@@ -135,7 +132,6 @@ class GooglePlacesApi extends Frontend
      */
     protected function recordExists($objRecommendations, $authorUrl): bool
     {
-		//ToDo: Update fetcheach
         if (null === $objRecommendations)
             return false;
 		
