@@ -9,7 +9,8 @@ $GLOBALS['TL_DCA']['tl_recommendation']['list']['global_operations']['startSync'
 (
     'href'                => 'key=startSync',
 	'class'				  => '',
-    'icon'                => 'sync.svg'
+    'icon'                => 'sync.svg',
+	'attributes'          => 'onclick="if(!confirm(\'' . ($GLOBALS['TL_LANG']['tl_recommendation']['syncConfirm'] ?? null) . '\'))return false;Backend.getScrollOffset()"',
 );
 
 $GLOBALS['TL_DCA']['tl_recommendation']['fields']['googleAuthorUrl'] = array
