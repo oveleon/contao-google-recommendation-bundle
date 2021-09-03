@@ -2,8 +2,12 @@
   <file datatype="php" original="src/Resources/contao/languages/en/tl_recommendation.php" source-language="en" target-language="de">
     <body>
       <trans-unit id="tl_recommendation.startSync">
-        <source>Sync with Google now</source>
-        <target>Jetzt mit Google synchronisieren</target>
+        <source>Sync now</source>
+        <target>Jetzt synchronisieren</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.syncConfirm">
+        <source>Are you sure that you want to sync your reviews now?</source>
+        <target>Sind Sie sicher, dass Sie Ihre Bewertungen jetzt synchronisieren wollen?</target>
       </trans-unit>
       <trans-unit id="tl_recommendation.googleAuthorUrl.0">
         <source>Google author url</source>

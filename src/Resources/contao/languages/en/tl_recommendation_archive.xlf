@@ -1,33 +1,32 @@
 <?xml version="1.0" ?><xliff version="1.1">
   <file datatype="php" original="src/Resources/contao/languages/en/tl_recommendation_archive.php" source-language="en">
     <body>
+      <trans-unit id="tl_recommendation_archive.google_legend">
+        <source>Google reviews</source>
+      </trans-unit>
       <trans-unit id="tl_recommendation_archive.syncWithGoogle.0">
         <source>Sync with Google</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.syncWithGoogle.1">
-        <source>Sync with Google Places API.</source>
+        <source>Sync reviews from Google Places API.</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googleApiToken.0">
         <source>Google API Token</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googleApiToken.1">
-        <source>Please enter your Google API Token.</source>
+        <source>Please enter your Google API Token &lt;a href=&quot;https://cloud.google.com/docs/authentication/api-keys&quot; title=&quot;Google API keys&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Using API keys)&lt;/a&gt;.</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googlePlaceId.0">
         <source>Google Places ID</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googlePlaceId.1">
-        <source>Please enter the Google Places ID.</source>
+        <source>Please enter the Google Places ID &lt;a href=&quot;https://developers.google.com/maps/documentation/places/web-service/place-id&quot; title=&quot;Place IDs&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Place IDs)&lt;/a&gt;.</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.syncLanguage.0">
         <source>Language</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.syncLanguage.1">
-        <source>Please specify the language in which Google recommendations should be synchronized.</source>
-      </trans-unit>
-
-      <trans-unit id="tl_recommendation_archive.google_legend">
-        <source>Google</source>
+        <source>Please select the import language &lt;a href=&quot;https://developers.google.com/maps/faq#languagesupport&quot; title=&quot;Machine translated&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Machine translation by Google)&lt;/a&gt;.</source>
       </trans-unit>
     </body>
   </file>
