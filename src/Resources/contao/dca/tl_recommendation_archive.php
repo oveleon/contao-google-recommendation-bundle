@@ -11,7 +11,6 @@ Contao\System::loadLanguageFile('tl_recommendation_languages');
 // Add subpalettes
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['syncWithGoogle'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG']['tl_recommendation_archive']['syncWithGoogle'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
     'eval'                    => array('submitOnChange'=>true),
@@ -19,7 +18,6 @@ $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['syncWithGoogle'] = ar
 );
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['googleApiToken'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG']['tl_recommendation_archive']['googleApiToken'],
     'exclude'                 => true,
     'inputType'               => 'text',
     'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
@@ -27,7 +25,6 @@ $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['googleApiToken'] = ar
 );
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['googlePlaceId'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG']['tl_recommendation_archive']['googlePlaceId'],
     'exclude'                 => true,
     'inputType'               => 'text',
     'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'tl_class'=>'w50'),
@@ -35,7 +32,6 @@ $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['googlePlaceId'] = arr
 );
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['syncLanguage'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG']['tl_recommendation_archive']['syncLanguage'],
     'exclude'                 => true,
     'inputType'               => 'select',
 	'options_callback' => static function ()
