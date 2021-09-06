@@ -79,7 +79,6 @@ class GooglePlacesApi extends Frontend
 	            $time = time();
 				
 	            $objRecommendations = RecommendationModel::findByPid($objRecommendationArchive->id);
-				
 
                 foreach ($arrReviews as $review)
                 {
@@ -111,6 +110,9 @@ class GooglePlacesApi extends Frontend
 	            if(!$blnCron) {
 		            Message::addInfo(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncSuccess'], Input::get('id')));
 	            }
+				
+				//Invalidate archive tag
+	            $this->invalidateRecommendationArchiveTag($objRecommendationArchive);
             }
         }
     }
@@ -141,4 +143,14 @@ class GooglePlacesApi extends Frontend
 		
 		return in_array($authorUrl, $arrUrls);
     }
+	
+	/**
+	 * Invalidates the recommendation cache tag
+	 */
+	public function invalidateRecommendationArchiveTag($objRecommendationArchive)
+	{
+		/** @var FOS\HttpCacheBundle\CacheManager $cacheManager */
+		$cacheManager = System::getContainer()->get('fos_http_cache.cache_manager');
+		$cacheManager->invalidateTags(array('contao.db.tl_recommendation_archive.' . $objRecommendationArchive->id));
+	}
 }
