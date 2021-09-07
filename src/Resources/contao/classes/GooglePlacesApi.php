@@ -26,9 +26,9 @@ use Symfony\Component\HttpClient\HttpClient;
  */
 class GooglePlacesApi extends Frontend
 {
-    public function getGoogleReviews(?array $arrIds = null)
+    public function getGoogleReviews(?array $arrIds = null, bool $manualSync = false)
     {
-		// Check if method is called by cronjob or not
+		// Check if method is called by cronjob
 		$blnCron = false;
 		
         if(null === $arrIds)
@@ -39,10 +39,15 @@ class GooglePlacesApi extends Frontend
 				$recTable . ".syncWithGoogle=?"
             ],[1]);
 			
-	        $blnCron = true;
+			if (!$manualSync)
+			{
+				$blnCron = true;
+			}
         }
-        
-        $objRecommendationArchives = RecommendationArchiveModel::findMultipleByIds($arrIds);
+		else
+		{
+			$objRecommendationArchives = RecommendationArchiveModel::findMultipleByIds($arrIds);
+		}
         
         if (null === $objRecommendationArchives)
             return;
@@ -51,10 +56,12 @@ class GooglePlacesApi extends Frontend
 		foreach($objRecommendationArchives as $objRecommendationArchive)
         {
             $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?language=' . ($objRecommendationArchive->syncLanguage ?? '') . '&place_id='.$objRecommendationArchive->googlePlaceId . '&fields=reviews&key=' . $objRecommendationArchive->googleApiToken;
-			
+
 			$client = HttpClient::create();
 	        $arrContent = $client->request('POST', $strSyncUrl)->toArray();
 	        $objContent = (object) $arrContent;
+			
+			System::loadLanguageFile('tl_recommendation');
 			
             if ($objContent && $objContent->status !== 'OK')
             {
@@ -68,7 +75,7 @@ class GooglePlacesApi extends Frontend
 				// Display an error if api call was not successful
 	            if(!$blnCron)
 	            {
-		            Message::addError(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncFailed'], Input::get('id'), ($objContent->error_message ?? $objContent->status ?? 'Connection with Google Api could not be established.')));
+		            Message::addError(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncFailed'], $objRecommendationArchive->id, ($objContent->error_message ?? $objContent->status ?? 'Connection with Google Api could not be established.')));
 	            }
 				
 				continue;
@@ -108,7 +115,7 @@ class GooglePlacesApi extends Frontend
 	
 				// Sync happened successfully
 	            if(!$blnCron) {
-		            Message::addInfo(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncSuccess'], Input::get('id')));
+		            Message::addInfo(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncSuccess'], $objRecommendationArchive->id));
 	            }
 				
 				//Invalidate archive tag
@@ -116,6 +123,15 @@ class GooglePlacesApi extends Frontend
             }
         }
     }
+	
+	/**
+	 * Sync all archives manually
+	 */
+	public function syncAllArchives()
+	{
+		$this->getGoogleReviews(null, true);
+		$this->redirect($this->getReferer());
+	}
 	
 	/**
 	 * Sync selected archive with Google

@@ -1,6 +1,18 @@
 <?xml version="1.0" ?><xliff version="1.1">
   <file datatype="php" original="src/Resources/contao/languages/en/tl_recommendation_archive.php" source-language="en">
     <body>
+      <trans-unit id="tl_recommendation_archive.syncAllArchives">
+        <source>Sync all archives</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.syncAllConfirm">
+        <source>Are you sure that you want to sync all archives?</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.startSync">
+        <source>Sync archive ID %s</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.syncConfirm">
+        <source>Are you sure that you want to sync your reviews now?</source>
+      </trans-unit>
       <trans-unit id="tl_recommendation_archive.google_legend">
         <source>Google reviews</source>
       </trans-unit>
