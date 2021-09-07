@@ -7,7 +7,6 @@
 
 $GLOBALS['TL_DCA']['tl_recommendation']['fields']['googleAuthorUrl'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG']['tl_recommendation']['googleAuthorUrl'],
     'exclude'                 => true,
     'inputType'               => 'text',
     'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),

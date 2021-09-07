@@ -1,0 +1,330 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="src/Resources/contao/languages/en/tl_recommendation_languages_languages.php" source-language="en">
+    <body>
+      <trans-unit id="tl_recommendation_languages.af">
+        <source>Afrikaans</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sq">
+        <source>Albanian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.am">
+        <source>Amharic</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ar">
+        <source>Arabic</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.hy">
+        <source>Armenian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.az">
+        <source>Azerbaijani</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.eu">
+        <source>Basque</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.be">
+        <source>Belarusian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.bn">
+        <source>Bengali</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.bs">
+        <source>Bosnian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.bg">
+        <source>Bulgarian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ca">
+        <source>Catalan</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ceb">
+        <source>Cebuano</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.zh-TW">
+        <source>Chinese (Simplified)</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.zh-TW">
+        <source>Chinese (Traditional)</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.co">
+        <source>Corsican</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.hr">
+        <source>Croatian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.cs">
+        <source>Czech</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.da">
+        <source>Danish</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.nl">
+        <source>Dutch</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.en">
+        <source>English</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.eo">
+        <source>Esperanto</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.et">
+        <source>Estonian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.fi">
+        <source>Finnish</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.fr">
+        <source>French</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.fy">
+        <source>Frisian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.gl">
+        <source>Galician</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ka">
+        <source>Georgian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.de">
+        <source>German</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.el">
+        <source>Greek</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.gu">
+        <source>Gujarati</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ht">
+        <source>Haitian Creole</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ha">
+        <source>Hausa</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.haw">
+        <source>Hawaiian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.he">
+        <source>Hebrew</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.hi">
+        <source>Hindi</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.hmn">
+        <source>Hmong</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.hu">
+        <source>Hungarian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.is">
+        <source>Icelandic</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ig">
+        <source>Igbo</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.id">
+        <source>Indonesian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ga">
+        <source>Irish</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.it">
+        <source>Italian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ja">
+        <source>Japanese</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.jv">
+        <source>Javanese</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.kn">
+        <source>Kannada</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.kk">
+        <source>Kazakh</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.km">
+        <source>Khmer</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.rw">
+        <source>Kinyarwanda</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ko">
+        <source>Korean</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ku">
+        <source>Kurdish</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ky">
+        <source>Kyrgyz</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.lo">
+        <source>Lao</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.lv">
+        <source>Latvian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.lt">
+        <source>Lithuanian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.lb">
+        <source>Luxembourgish</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mk">
+        <source>Macedonian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mg">
+        <source>Malagasy</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ms">
+        <source>Malay</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ml">
+        <source>Malayalam</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mt">
+        <source>Maltese</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mi">
+        <source>Maori</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mr">
+        <source>Marathi</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.mn">
+        <source>Mongolian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.my">
+        <source>Myanmar (Burmese)</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ne">
+        <source>Nepali</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.no">
+        <source>Norwegian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ny">
+        <source>Nyanja (Chichewa)</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.or">
+        <source>Odia (Oriya)</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ps">
+        <source>Pashto</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.fa">
+        <source>Persian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.pl">
+        <source>Polish</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.pt">
+        <source>Portuguese (Portugal, Brazil)</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.pa">
+        <source>Punjabi</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ro">
+        <source>Romanian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ru">
+        <source>Russian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sm">
+        <source>Samoan</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.gd">
+        <source>Scots Gaelic</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sr">
+        <source>Serbian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.st">
+        <source>Sesotho</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sn">
+        <source>Shona</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sd">
+        <source>Sindhi</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.si">
+        <source>Sinhala (Sinhalese)</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sk">
+        <source>Slovak</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sl">
+        <source>Slovenian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.so">
+        <source>Somali</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.es">
+        <source>Spanish</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.su">
+        <source>Sundanese</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sw">
+        <source>Swahili</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.sv">
+        <source>Swedish</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.tl">
+        <source>Tagalog (Filipino)</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.tg">
+        <source>Tajik</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ta">
+        <source>Tamil</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.tt">
+        <source>Tatar</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.te">
+        <source>Telugu</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.th">
+        <source>Thai</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.tr">
+        <source>Turkish</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.tk">
+        <source>Turkmen</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.uk">
+        <source>Ukrainian</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ur">
+        <source>Urdu</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.ug">
+        <source>Uyghur</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.uz">
+        <source>Uzbek</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.vi">
+        <source>Vietnamese</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.cy">
+        <source>Welsh</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.xh">
+        <source>Xhosa</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.yi">
+        <source>Yiddish</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.yo">
+        <source>Yoruba</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_languages.zu">
+        <source>Zulu</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
