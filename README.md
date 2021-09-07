@@ -1,7 +1,3 @@
-
-Integration of google synchronisation for oveleon contao-recommendation-bundle. Syncs latest published recommendations by google places api. 
-
-
 <h1 align="center">Contao Google Recommendation Bundle</h1>
 <p align="center"><i>Syncs your latest google reviews into the contao recommendation bundle.</i></p>
 <p align="center">
