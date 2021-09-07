@@ -13,11 +13,17 @@
 
 ---
 
-This plugin adds the possibility to synchronize your google reviews into your recommendation archives.
+This plugin adds the possibility to synchronize your Google reviews into your recommendation archives.
 
 + [Features](#features)
 + [Installation](#installation)
+    + [Composer](#via-composer)
+    + [Contao Manager](#via-contao-manager)
 + [Setup](#setup)
+    + [Contao Recommendation Bundle](#contao-recommendation-bundle)
+    + [Archive settings](#archive-settings)
+    + [Syncing with Google](#synchronization)
++ [Styled Reviews](#example)
 
 ## Features
 
@@ -27,6 +33,8 @@ This plugin adds the possibility to synchronize your google reviews into your re
 - Automatic import once every 24 hours
 - Manual synchronization for one or all archives
 - Error logging
+
+## Installation
 
 #### Via composer
 ```
@@ -44,7 +52,10 @@ After installing the contao-google-recommendation-bundle, you need to run a **co
 
 ## Setup
 
-This bundle adds news fields to [Contao Recommendation Bundle](https://github.com/oveleon/contao-recommendation-bundle). 
+This bundle adds new fields to [Contao Recommendation Bundle](https://github.com/oveleon/contao-recommendation-bundle).
+
+### Contao Recommendation Bundle
+For a full setup, please look [here](https://github.com/oveleon/contao-recommendation-bundle/blob/master/README.md).
 
 
 ### Archive settings
@@ -82,3 +93,8 @@ All archives with enabled synchronization will update once every 24 hours. You a
 
 ![Admin View: Recommendation Sync](https://www.oveleon.de/share/github-assets/contao-google-recommendation-bundle/recommendationListSync.jpg)
 
+### Example
+
+An example how to style your reviews on your website
+
+![Admin View: Recommendation Example](https://www.oveleon.de/share/github-assets/contao-google-recommendation-bundle/recommendationExample.png)
