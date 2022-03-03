@@ -15,7 +15,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "contao/core-bundle":"^4.9",
-        "oveleon/contao-recommendation-bundle":"^1.1"
+        "oveleon/contao-recommendation-bundle":"^1.2.1"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0"
