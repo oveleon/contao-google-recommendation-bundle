@@ -34,24 +34,24 @@
         <target>Google API Token</target>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googleApiToken.1">
-        <source>Please enter your Google API Token &lt;a href=&quot;https://cloud.google.com/docs/authentication/api-keys&quot; title=&quot;Google API keys&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Using API keys)&lt;/a&gt;.</source>
-        <target>Bitte geben Sie Ihren Google API Token ein &lt;a href=&quot;https://cloud.google.com/docs/authentication/api-keys&quot; title=&quot;Google API keys&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(API-Schlüssel verwenden)&lt;/a&gt;.</target>
+        <source>Please enter your Google API Token &lt;a href=&quot;https://cloud.google.com/docs/authentication/api-keys&quot; title=&quot;Google API keys&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Using API keys)&lt;/a&gt;.</source>
+        <target>Bitte geben Sie Ihren Google API Token ein &lt;a href=&quot;https://cloud.google.com/docs/authentication/api-keys&quot; title=&quot;Google API keys&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(API-Schlüssel verwenden)&lt;/a&gt;.</target>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googlePlaceId.0">
         <source>Google Places ID</source>
         <target>Google Places ID</target>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googlePlaceId.1">
-        <source>Please enter the Google Places ID &lt;a href=&quot;https://developers.google.com/maps/documentation/places/web-service/place-id&quot; title=&quot;Place IDs&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Place IDs)&lt;/a&gt;.</source>
-        <target>Bitte geben Sie die Google Places ID ein &lt;a href=&quot;https://developers.google.com/maps/documentation/places/web-service/place-id&quot; title=&quot;Place IDs&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Place IDs)&lt;/a&gt;.</target>
+        <source>Please enter the Google Places ID &lt;a href=&quot;https://developers.google.com/maps/documentation/places/web-service/place-id&quot; title=&quot;Place IDs&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Place IDs)&lt;/a&gt;.</source>
+        <target>Bitte geben Sie die Google Places ID ein &lt;a href=&quot;https://developers.google.com/maps/documentation/places/web-service/place-id&quot; title=&quot;Place IDs&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Place IDs)&lt;/a&gt;.</target>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.syncLanguage.0">
         <source>Language</source>
         <target>Sprache</target>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.syncLanguage.1">
-        <source>Please select the import language &lt;a href=&quot;https://developers.google.com/maps/faq#languagesupport&quot; title=&quot;Machine translated&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Machine translation by Google)&lt;/a&gt;.</source>
-        <target>Bitte wählen Sie die Importsprache &lt;a href=&quot;https://developers.google.com/maps/faq#languagesupport&quot; title=&quot;Maschinelle Übersetzung&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Maschinelle Übersetzung durch Google)&lt;/a&gt;.</target>
+        <source>Please select the import language &lt;a href=&quot;https://developers.google.com/maps/faq#languagesupport&quot; title=&quot;Machine translated&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Machine translation by Google)&lt;/a&gt;.</source>
+        <target>Bitte wählen Sie die Importsprache &lt;a href=&quot;https://developers.google.com/maps/faq#languagesupport&quot; title=&quot;Maschinelle Übersetzung&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Maschinelle Übersetzung durch Google)&lt;/a&gt;.</target>
       </trans-unit>
     </body>
   </file>

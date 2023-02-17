@@ -26,19 +26,19 @@
         <source>Google API Token</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googleApiToken.1">
-        <source>Please enter your Google API Token &lt;a href=&quot;https://cloud.google.com/docs/authentication/api-keys&quot; title=&quot;Google API keys&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Using API keys)&lt;/a&gt;.</source>
+        <source>Please enter your Google API Token &lt;a href=&quot;https://cloud.google.com/docs/authentication/api-keys&quot; title=&quot;Google API keys&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Using API keys)&lt;/a&gt;.</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googlePlaceId.0">
         <source>Google Places ID</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.googlePlaceId.1">
-        <source>Please enter the Google Places ID &lt;a href=&quot;https://developers.google.com/maps/documentation/places/web-service/place-id&quot; title=&quot;Place IDs&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Place IDs)&lt;/a&gt;.</source>
+        <source>Please enter the Google Places ID &lt;a href=&quot;https://developers.google.com/maps/documentation/places/web-service/place-id&quot; title=&quot;Place IDs&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Place IDs)&lt;/a&gt;.</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.syncLanguage.0">
         <source>Language</source>
       </trans-unit>
       <trans-unit id="tl_recommendation_archive.syncLanguage.1">
-        <source>Please select the import language &lt;a href=&quot;https://developers.google.com/maps/faq#languagesupport&quot; title=&quot;Machine translated&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;(Machine translation by Google)&lt;/a&gt;.</source>
+        <source>Please select the import language &lt;a href=&quot;https://developers.google.com/maps/faq#languagesupport&quot; title=&quot;Machine translated&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Machine translation by Google)&lt;/a&gt;.</source>
       </trans-unit>
     </body>
   </file>

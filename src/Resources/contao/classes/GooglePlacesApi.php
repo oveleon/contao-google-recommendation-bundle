@@ -28,63 +28,62 @@ class GooglePlacesApi extends Frontend
 {
     public function getGoogleReviews(?array $arrIds = null, bool $manualSync = false)
     {
-		// Check if method is called by cronjob
-		$blnCron = false;
-		
-        if(null === $arrIds)
+        // Check if method is called by cronjob
+        $blnCron = false;
+
+        if (null === $arrIds)
         {
-			$recTable = RecommendationArchiveModel::getTable();
-			
+            $recTable = RecommendationArchiveModel::getTable();
+
             $objRecommendationArchives = RecommendationArchiveModel::findBy([
-				$recTable . ".syncWithGoogle=?"
-            ],[1]);
-			
-			if (!$manualSync)
-			{
-				$blnCron = true;
-			}
+                $recTable . ".syncWithGoogle=?"
+            ], [1]);
+
+            if (!$manualSync)
+            {
+                $blnCron = true;
+            }
         }
-		else
-		{
-			$objRecommendationArchives = RecommendationArchiveModel::findMultipleByIds($arrIds);
-		}
-        
+        else
+        {
+            $objRecommendationArchives = RecommendationArchiveModel::findMultipleByIds($arrIds);
+        }
+
         if (null === $objRecommendationArchives)
             return;
 
-
-		foreach($objRecommendationArchives as $objRecommendationArchive)
+        foreach ($objRecommendationArchives as $objRecommendationArchive)
         {
-            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reviews_sort=newest&language=' . ($objRecommendationArchive->syncLanguage ?? '') . '&place_id='.$objRecommendationArchive->googlePlaceId . '&fields=reviews&key=' . $objRecommendationArchive->googleApiToken;
-			$client = HttpClient::create();
-	        $arrContent = $client->request('POST', $strSyncUrl)->toArray();
-	        $objContent = (object) $arrContent;
-			
-			System::loadLanguageFile('tl_recommendation');
-			
+            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reviews_sort=newest&language=' . ($objRecommendationArchive->syncLanguage ?? '') . '&place_id=' . $objRecommendationArchive->googlePlaceId . '&fields=reviews&key=' . $objRecommendationArchive->googleApiToken;
+            $client     = HttpClient::create();
+            $arrContent = $client->request('POST', $strSyncUrl)->toArray();
+            $objContent = (object)$arrContent;
+
+            System::loadLanguageFile('tl_recommendation');
+
             if ($objContent && $objContent->status !== 'OK')
             {
-	            $logger = System::getContainer()->get('monolog.logger.contao');
-	            $logger->log(
-					LogLevel::ERROR,
-					'Recommendations for Archive with ID ' . $objRecommendationArchive->id . ' could not be synced - Reason: '. ($objContent->error_message ?? $objContent->status ?? 'Connection with Google Api could not be established.') ,
-					array('contao' => new ContaoContext(__METHOD__, TL_ERROR))
-	            );
-	
-				// Display an error if api call was not successful
-	            if(!$blnCron)
-	            {
-		            Message::addError(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncFailed'], $objRecommendationArchive->id, ($objContent->error_message ?? $objContent->status ?? 'Connection with Google Api could not be established.')));
-	            }
-				
-				continue;
+                $logger = System::getContainer()->get('monolog.logger.contao');
+                $logger->log(
+                    LogLevel::ERROR,
+                    'Recommendations for Archive with ID ' . $objRecommendationArchive->id . ' could not be synced - Reason: ' . ($objContent->error_message ?? $objContent->status ?? 'Connection with Google Api could not be established.'),
+                    ['contao' => new ContaoContext(__METHOD__, TL_ERROR)]
+                );
+
+                // Display an error if api call was not successful
+                if (!$blnCron)
+                {
+                    Message::addError(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncFailed'], $objRecommendationArchive->id, ($objContent->error_message ?? $objContent->status ?? 'Connection with Google Api could not be established.')));
+                }
+
+                continue;
             }
 
             if ($objContent && $objContent->result && (is_array($arrReviews = $objContent->result['reviews']) ?? null))
             {
-	            $time = time();
-				
-	            $objRecommendations = RecommendationModel::findByPid($objRecommendationArchive->id);
+                $time = time();
+
+                $objRecommendations = RecommendationModel::findByPid($objRecommendationArchive->id);
 
                 foreach ($arrReviews as $review)
                 {
@@ -92,49 +91,48 @@ class GooglePlacesApi extends Frontend
                     if (!$review['author_url'] || !$review['text'] || $this->recordExists($objRecommendations, $review['author_url']))
                         continue;
 
-	
-	                // Prepare the record
-	                $arrData = array
-	                (
-		                'tstamp'          => $time,
-		                'pid'             => $objRecommendationArchive->id,
-		                'author'          => $review['author_name'],
-		                'date'            => $review['time'],
-		                'time'            => $review['time'],
-		                'text'            => '<p>' . $review['text'] . '</p>',
-		                'rating'          => $review['rating'],
-						'imageUrl'        => $review['profile_photo_url'],
-						'googleAuthorUrl' => $review['author_url'],
-		                'published'       => 1
-	                );
+                    // Prepare the record
+                    $arrData = [
+                        'tstamp'          => $time,
+                        'pid'             => $objRecommendationArchive->id,
+                        'author'          => $review['author_name'],
+                        'date'            => $review['time'],
+                        'time'            => $review['time'],
+                        'text'            => '<p>' . $review['text'] . '</p>',
+                        'rating'          => $review['rating'],
+                        'imageUrl'        => $review['profile_photo_url'],
+                        'googleAuthorUrl' => $review['author_url'],
+                        'published'       => 1
+                    ];
 
                     $objRecommendation = new RecommendationModel();
                     $objRecommendation->setRow($arrData)->save();
                 }
-	
-				// Sync happened successfully
-	            if(!$blnCron) {
-		            Message::addInfo(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncSuccess'], $objRecommendationArchive->id));
-	            }
-				
-				//Invalidate archive tag
-	            $this->invalidateRecommendationArchiveTag($objRecommendationArchive);
+
+                // Sync happened successfully
+                if (!$blnCron)
+                {
+                    Message::addInfo(sprintf($GLOBALS['TL_LANG']['tl_recommendation']['archiveSyncSuccess'], $objRecommendationArchive->id));
+                }
+
+                //Invalidate archive tag
+                $this->invalidateRecommendationArchiveTag($objRecommendationArchive);
             }
         }
     }
-	
-	/**
-	 * Sync all archives manually
-	 */
-	public function syncAllArchives()
-	{
-		$this->getGoogleReviews(null, true);
-		$this->redirect($this->getReferer());
-	}
-	
-	/**
-	 * Sync selected archive with Google
-	 */
+
+    /**
+     * Sync all archives manually
+     */
+    public function syncAllArchives()
+    {
+        $this->getGoogleReviews(null, true);
+        $this->redirect($this->getReferer());
+    }
+
+    /**
+     * Sync selected archive with Google
+     */
     public function syncWithGoogle()
     {
         $this->getGoogleReviews([Input::get('id')]);
@@ -145,7 +143,7 @@ class GooglePlacesApi extends Frontend
      * Check if a record exists
      *
      * @param RecommendationModel $objRecommendations
-     * @param string              $authorUrl
+     * @param string $authorUrl
      *
      * @return boolean
      */
@@ -153,19 +151,19 @@ class GooglePlacesApi extends Frontend
     {
         if (null === $objRecommendations)
             return false;
-		
-		$arrUrls = $objRecommendations->fetchEach('googleAuthorUrl');
-		
-		return in_array($authorUrl, $arrUrls);
+
+        $arrUrls = $objRecommendations->fetchEach('googleAuthorUrl');
+
+        return in_array($authorUrl, $arrUrls);
     }
-	
-	/**
-	 * Invalidates the recommendation cache tag
-	 */
-	public function invalidateRecommendationArchiveTag($objRecommendationArchive)
-	{
-		/** @var FOS\HttpCacheBundle\CacheManager $cacheManager */
-		$cacheManager = System::getContainer()->get('fos_http_cache.cache_manager');
-		$cacheManager->invalidateTags(array('contao.db.tl_recommendation_archive.' . $objRecommendationArchive->id));
-	}
+
+    /**
+     * Invalidates the recommendation cache tag
+     */
+    public function invalidateRecommendationArchiveTag($objRecommendationArchive)
+    {
+        /** @var FOS\HttpCacheBundle\CacheManager $cacheManager */
+        $cacheManager = System::getContainer()->get('fos_http_cache.cache_manager');
+        $cacheManager->invalidateTags(['contao.db.tl_recommendation_archive.' . $objRecommendationArchive->id]);
+    }
 }
