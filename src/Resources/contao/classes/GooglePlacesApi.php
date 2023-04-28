@@ -54,7 +54,20 @@ class GooglePlacesApi extends Frontend
 
         foreach ($objRecommendationArchives as $objRecommendationArchive)
         {
-            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reviews_sort=newest&language=' . ($objRecommendationArchive->syncLanguage ?? '') . '&place_id=' . $objRecommendationArchive->googlePlaceId . '&fields=reviews&key=' . $objRecommendationArchive->googleApiToken;
+            $arrParams = [
+                'reviews_sort' => 'newest',
+                'place_id' => $objRecommendationArchive->googlePlaceId,
+                'fields' => 'reviews',
+                'key' => $objRecommendationArchive->googleApiToken,
+            ];
+
+            if ($objRecommendationArchive->syncLanguage) {
+                $arrParams['language'] = $objRecommendationArchive->syncLanguage;
+            } else {
+                $arrParams['reviews_no_translations'] = 'true';
+            }
+
+            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?' . http_build_query($arrParams);
             $client     = HttpClient::create();
             $arrContent = $client->request('POST', $strSyncUrl)->toArray();
             $objContent = (object)$arrContent;
