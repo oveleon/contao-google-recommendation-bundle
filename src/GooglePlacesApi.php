@@ -60,7 +60,23 @@ class GooglePlacesApi
 
         foreach ($objArchives as $objArchive)
         {
-            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reviews_sort=newest&language=' . ($objArchive->syncLanguage ?? '') . '&place_id=' . $objArchive->googlePlaceId . '&fields=reviews&key=' . $objArchive->googleApiToken;
+            $arrParams = [
+                'reviews_sort' => 'newest',
+                'place_id'     => $objArchive->googlePlaceId,
+                'fields'       => 'reviews',
+                'key'          => $objArchive->googleApiToken,
+            ];
+
+            if ($objArchive->syncLanguage)
+            {
+                $arrParams['language'] = $objArchive->syncLanguage;
+            }
+            else
+            {
+                $arrParams['reviews_no_translations'] = 'true';
+            }
+
+            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?' . http_build_query($arrParams);
             $client     = HttpClient::create();
             $arrContent = $client->request('POST', $strSyncUrl)->toArray();
             $objContent = (object) $arrContent;
