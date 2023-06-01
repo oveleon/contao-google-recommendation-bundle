@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Oveleon Recommendation Bundle.
+ * This file is part of Oveleon Google Recommendation Bundle.
  *
  * (c) https://www.oveleon.de/
  */
@@ -10,11 +10,10 @@ namespace Oveleon\ContaoGoogleRecommendationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
- * Configures the Contao google recommendation bundle.
- *
- * @author Fabian Ekert <fabian@oveleon.de>
- */
 class ContaoGoogleRecommendationBundle extends Bundle
 {
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
 }

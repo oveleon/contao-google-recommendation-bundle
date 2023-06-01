@@ -17,11 +17,6 @@ use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Oveleon\ContaoGoogleRecommendationBundle\ContaoGoogleRecommendationBundle;
 use Oveleon\ContaoRecommendationBundle\ContaoRecommendationBundle;
 
-/**
- * Plugin for the Contao Manager.
- *
- * @author Fabian Ekert <fabian@oveleon.de>
- */
 class Plugin implements BundlePluginInterface
 {
     /**
