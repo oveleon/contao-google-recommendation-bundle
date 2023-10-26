@@ -26,6 +26,13 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
  */
 class GooglePlacesApi
 {
+    const PLACES_URI   = 'https://maps.googleapis.com/maps/api/place/details';
+    const MAPS_URI     = 'https://www.google.com/maps';
+    const CONTRIBUTION = '/contrib';
+    const PLACE        = '/place';
+
+    private string $placeId = '';
+
     /**
      * @throws TransportExceptionInterface
      * @throws ServerExceptionInterface
@@ -58,12 +65,14 @@ class GooglePlacesApi
             return;
         }
 
+        System::loadLanguageFile('tl_recommendation');
+
         foreach ($objArchives as $objArchive)
         {
             $arrParams = [
                 'reviews_sort' => 'newest',
-                'place_id'     => $objArchive->googlePlaceId,
                 'fields'       => 'reviews',
+                'place_id'     => ($this->placeId = $objArchive->googlePlaceId),
                 'key'          => $objArchive->googleApiToken,
             ];
 
@@ -76,12 +85,10 @@ class GooglePlacesApi
                 $arrParams['reviews_no_translations'] = 'true';
             }
 
-            $strSyncUrl = 'https://maps.googleapis.com/maps/api/place/details/json?' . http_build_query($arrParams);
+            $strSyncUrl = self::PLACES_URI . '/json?' . http_build_query($arrParams);
             $client     = HttpClient::create();
             $arrContent = $client->request('POST', $strSyncUrl)->toArray();
             $objContent = (object) $arrContent;
-
-            System::loadLanguageFile('tl_recommendation');
 
             if ($objContent && $objContent->status !== 'OK')
             {
@@ -110,7 +117,9 @@ class GooglePlacesApi
                     }
 
                     // Save the record
-                    (new RecommendationModel())->setRow([
+                    $reviewURI = self::getReviewURI($review['author_url']) ?? '';
+
+                    $recommendation = (new RecommendationModel())->setRow([
                         'tstamp'          => $time,
                         'pid'             => $objArchive->id,
                         'author'          => $review['author_name'],
@@ -120,8 +129,11 @@ class GooglePlacesApi
                         'rating'          => $review['rating'],
                         'imageUrl'        => $review['profile_photo_url'],
                         'googleAuthorUrl' => $review['author_url'],
+                        'googleReviewUrl' => self::getReviewURI($review['author_url']) ?? '',
                         'published'       => 1
-                    ])->save();
+                    ]);
+
+                    $recommendation->save();
                 }
 
                 if (!$blnCron)
@@ -151,6 +163,26 @@ class GooglePlacesApi
     {
         $this->getGoogleReviews([Input::get('id')]);
         Controller::redirect(System::getReferer());
+    }
+
+    public function getUserID(string $authorUri): ?string
+    {
+        if (preg_match('/\/contrib\/(\d+)\//', $authorUri, $match))
+        {
+            return $match[1];
+        }
+
+        return '';
+    }
+
+    public function getReviewURI(string $authorURI): string
+    {
+        if (!!$this->placeId && !!($id = self::getUserID($authorURI)))
+        {
+            return self::MAPS_URI . self::CONTRIBUTION . '/' . $id . self::PLACE . '/' . $this->placeId;
+        }
+
+        return '';
     }
 }
 
