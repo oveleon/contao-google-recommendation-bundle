@@ -15,9 +15,16 @@ $GLOBALS['TL_DCA']['tl_recommendation']['fields']['googleAuthorUrl'] = [
     'sql'                     => "varchar(255) NOT NULL default ''"
 ];
 
+$GLOBALS['TL_DCA']['tl_recommendation']['fields']['googleReviewUrl'] = [
+    'exclude'                 => true,
+    'inputType'               => 'text',
+    'eval'                    => ['maxlength'=>255, 'tl_class'=>'w50'],
+    'sql'                     => "varchar(255) NOT NULL default ''"
+];
+
 // Extend the default palette
 PaletteManipulator::create()
     ->addLegend('google_legend', 'expert_legend', PaletteManipulator::POSITION_BEFORE)
-    ->addField(array('googleAuthorUrl'), 'google_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField(['googleAuthorUrl', 'googleReviewUrl'], 'google_legend', PaletteManipulator::POSITION_APPEND)
     ->applyToPalette('default', 'tl_recommendation')
 ;
