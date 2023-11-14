@@ -23,6 +23,7 @@ This plugin adds the possibility to synchronize your Google reviews into your re
     + [Contao Recommendation Bundle](#contao-recommendation-bundle)
     + [Archive settings](#archive-settings)
     + [Syncing with Google](#synchronization)
+        + [Limitations of sync](#limitations)
 + [Styled Reviews](#example)
 
 ## Features
@@ -36,12 +37,12 @@ This plugin adds the possibility to synchronize your Google reviews into your re
 
 ## Installation
 
-#### Via composer
+### Via composer
 ```
 composer require oveleon/contao-google-recommendation-bundle
 ```
 
-#### Via contao-manager
+### Via contao-manager
 ```
 Search for contao google recommendation bundle and add it to your extensions.
 ```
@@ -92,6 +93,11 @@ For a full setup, please look [here](https://github.com/oveleon/contao-recommend
 All archives with enabled synchronization will update once every 24 hours. You are able to trigger the synchronization for each archive or for all archives.
 
 ![Admin View: Recommendation Sync](https://www.oveleon.de/share/github-assets/contao-google-recommendation-bundle/recommendationListSync.jpg)
+
+#### Limitations
+
+1. Currently, the Google API only allows to retrieve the last 5 reviews. This should be sufficient for daily synchronization, but does not allow an initial import of all available ratings.
+2. The extension currently only allows the import of reviews with an entered text. If there is no text vavailable, the importer will skip the review.
 
 ### Example
 
