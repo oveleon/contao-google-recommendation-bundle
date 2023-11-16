@@ -29,6 +29,18 @@
         <source>Sync for Archive ID %s failed. Reason: %s</source>
         <target>Synchronisation für Archiv ID %s fehlgeschlagen. Grund: %s</target>
       </trans-unit>
+      <trans-unit id="tl_recommendation.publishedOn">
+        <source>Published on</source>
+        <target>Veröffentlicht auf</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.by">
+        <source>by </source>
+        <target>von </target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.google">
+        <source>Google</source>
+        <target>Google</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -22,6 +22,15 @@
       <trans-unit id="tl_recommendation.archiveSyncFailed">
         <source>Sync for Archive ID %s failed. Reason: %s</source>
       </trans-unit>
+      <trans-unit id="tl_recommendation.publishedOn">
+        <source>Published on</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.by">
+        <source>by </source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.google">
+        <source>Google</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
