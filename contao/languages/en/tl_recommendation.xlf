@@ -1,20 +1,35 @@
 <?xml version="1.0" ?><xliff version="1.1">
   <file datatype="php" original="contao/languages/en/tl_recommendation.php" source-language="en">
     <body>
+      <trans-unit id="tl_recommendation.google_legend">
+        <source>Google</source>
+      </trans-unit>
       <trans-unit id="tl_recommendation.googleAuthorUrl.0">
         <source>Google author url</source>
       </trans-unit>
       <trans-unit id="tl_recommendation.googleAuthorUrl.1">
-        <source>You can set the google author url here.</source>
+        <source>You can set the Google author url here.</source>
       </trans-unit>
-      <trans-unit id="tl_recommendation.google_legend">
-        <source>Google</source>
+      <trans-unit id="tl_recommendation.googleReviewUrl.0">
+        <source>Google review url</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.googleReviewUrl.1">
+        <source>You can set the Google review url here.</source>
       </trans-unit>
       <trans-unit id="tl_recommendation.archiveSyncSuccess">
         <source>Archive ID %s was synced</source>
       </trans-unit>
       <trans-unit id="tl_recommendation.archiveSyncFailed">
         <source>Sync for Archive ID %s failed. Reason: %s</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.publishedOn">
+        <source>Published on</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.by">
+        <source>by </source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation.google">
+        <source>Google</source>
       </trans-unit>
     </body>
   </file>
