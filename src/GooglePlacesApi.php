@@ -110,8 +110,8 @@ class GooglePlacesApi
 
                 foreach ($arrReviews as $review)
                 {
-                    // Skip if author url or text is empty or record already exists
-                    if (!$review['author_url'] || !$review['text'] || (!(null === $objRecommendations) && in_array($review['author_url'], $objRecommendations->fetchEach('googleAuthorUrl'))))
+                    // Skip if author url is empty or record already exists
+                    if (!$review['author_url'] || (!(null === $objRecommendations) && in_array($review['author_url'], $objRecommendations->fetchEach('googleAuthorUrl'))))
                     {
                         continue;
                     }
@@ -125,7 +125,7 @@ class GooglePlacesApi
                         'author'          => $review['author_name'],
                         'date'            => $review['time'],
                         'time'            => $review['time'],
-                        'text'            => '<p>' . $review['text'] . '</p>',
+                        'text'            => $review['text'] ? '<p>' . $review['text'] . '</p>' : '',
                         'rating'          => $review['rating'],
                         'imageUrl'        => $review['profile_photo_url'],
                         'googleAuthorUrl' => $review['author_url'],

@@ -30,7 +30,7 @@ class OnBeforeParseRecommendationListener
         {
             $additionalData[] = [
                 'class' => 'google_url',
-                'value' => vsprintf('%s <a class="c_link %s" title="%s" href="%s" target="_blank" >%s</a></div>', [
+                'value' => vsprintf('%s <a class="c_link %s" title="%s" href="%s" target="_blank">%s</a>', [
                     $this->translator->trans('tl_recommendation.publishedOn', [], 'contao_default'),
                     $this->translator->trans('tl_recommendation.googleReviewClass', [], 'contao_default'),
                     $this->translator->trans('tl_recommendation.by', [], 'contao_default') . $template->author,
