@@ -12,7 +12,7 @@ use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\FrontendTemplate;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-#[AsHook('onBeforeParseRecommendation')]
+#[AsHook('addAdditionalRecommendationData')]
 class OnBeforeParseRecommendationListener
 {
     public function __construct(TranslatorInterface $translator)
