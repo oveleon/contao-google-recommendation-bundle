@@ -24,6 +24,7 @@ This plugin adds the possibility to synchronize your Google reviews into your re
     + [Archive settings](#archive-settings)
     + [Syncing with Google](#synchronization)
         + [Limitations of sync](#limitations)
++ [Google](#google)
 + [Styled Reviews](#example)
 
 ## Features
@@ -98,6 +99,19 @@ All archives with enabled synchronization will update once every 24 hours. You a
 
 1. Currently, the Google API only allows to retrieve the last 5 reviews. This should be sufficient for daily synchronization, but does not allow an initial import of all available ratings.
 2. The extension currently only allows the import of reviews with an entered text. If there is no text vavailable, the importer will skip the review.
+
+### Google
+
+You may encounter issues regarding using the *Google Places API* so follow the following steps to enable it and allow the usage of the API-Key:
+
+| Error message                                                   | Solution                                                                                         |
+|-----------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| API keys with referer restrictions cannot be used with this API | Enable the google places API: https://developers.google.com/maps/documentation/javascript/places |
+| You must enable Billing...                                      | Enable billing for your Google Account                                                           |
+
+Also make sure that your API-Key for the Places-API is usable by your server (IP-Address) and do not lock it to a URL (The cronjob doesn't work via URL but the IP)
+
+> Any issues regarding setting up the Google API will be closed without an answer. Please read the docs.
 
 ### Example
 
