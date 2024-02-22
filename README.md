@@ -109,9 +109,10 @@ You may encounter issues regarding using the *Google Places API* so follow the f
 | API keys with referer restrictions cannot be used with this API | Enable the google places API: https://developers.google.com/maps/documentation/javascript/places |
 | You must enable Billing...                                      | Enable billing for your Google Account                                                           |
 
-Also make sure that your API-Key for the Places-API is usable by your server (IP-Address) and do not lock it to a URL (The cronjob doesn't work via URL but the IP)
+Also make sure that your API-Key for the Places-API is usable by your server (IP-Address) and do not lock it to a URL (The cronjob doesn't work via URL but the IP).
+For billing issues, make sure that you have to verify your payment method via https://payments.google.com/gp/w/home/paymentmethods as well.
 
-> Any issues regarding setting up the Google API will be closed without an answer. Please read the docs.
+> Any issues regarding setting up the Google API will be closed without an answer. Please read the google docs.
 
 ### Example
 
