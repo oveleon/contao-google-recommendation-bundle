@@ -30,7 +30,7 @@
         "symfony/http-client-contracts": "^2.4 || ^3.1",
         "symfony/http-kernel": "^6.4 || ^7.0",
         "symfony/translation-contracts": "^3.0",
-        "oveleon/contao-recommendation-bundle": "^1.5"
+        "oveleon/contao-recommendation-bundle": "^1.8"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.3.1"
