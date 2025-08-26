@@ -13,12 +13,10 @@ use Contao\FrontendTemplate;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsHook('addAdditionalRecommendationData')]
-class OnBeforeParseRecommendationListener
+readonly class OnBeforeParseRecommendationListener
 {
-    public function __construct(TranslatorInterface $translator)
-    {
-        $this->translator = $translator;
-    }
+    public function __construct(protected TranslatorInterface $translator)
+    {}
 
     public function __invoke(
         FrontendTemplate $template,
