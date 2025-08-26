@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of Oveleon Google Recommendation Bundle.
  *
@@ -26,10 +28,10 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
  */
 class GooglePlacesApi
 {
-    const PLACES_URI   = 'https://maps.googleapis.com/maps/api/place/details';
-    const MAPS_URI     = 'https://www.google.com/maps';
-    const CONTRIBUTION = '/contrib';
-    const PLACE        = '/place';
+    const string PLACES_URI   = 'https://maps.googleapis.com/maps/api/place/details';
+    const string MAPS_URI     = 'https://www.google.com/maps';
+    const string CONTRIBUTION = '/contrib';
+    const string PLACE        = '/place';
 
     private string $placeId = '';
 
@@ -122,12 +124,12 @@ class GooglePlacesApi
                     $recommendation = (new RecommendationModel())->setRow([
                         'tstamp'          => $time,
                         'pid'             => $objArchive->id,
-                        'author'          => $review['author_name'],
-                        'date'            => $review['time'],
-                        'time'            => $review['time'],
+                        'author'          => $review['author_name'] ?? '',
+                        'date'            => (int) ($review['time'] ?? 0),
+                        'time'            => (int) ($review['time'] ?? 0),
                         'text'            => $review['text'] ? '<p>' . $review['text'] . '</p>' : '',
-                        'rating'          => $review['rating'],
-                        'imageUrl'        => $review['profile_photo_url'],
+                        'rating'          => (int) $review['rating'],
+                        'imageUrl'        => $review['profile_photo_url'] ?? '',
                         'googleAuthorUrl' => $review['author_url'],
                         'googleReviewUrl' => self::getReviewURI($review['author_url']) ?? '',
                         'published'       => 1
@@ -152,7 +154,12 @@ class GooglePlacesApi
      */
     public function syncAllArchives(): void
     {
-        $this->getGoogleReviews(null, true);
+        try {
+            $this->getGoogleReviews(null, true);
+        } catch (ClientExceptionInterface|DecodingExceptionInterface|RedirectionExceptionInterface|ServerExceptionInterface|TransportExceptionInterface) {
+            // Noop
+        }
+
         Controller::redirect(System::getReferer());
     }
 
@@ -161,7 +168,12 @@ class GooglePlacesApi
      */
     public function syncWithGoogle(): void
     {
-        $this->getGoogleReviews([Input::get('id')]);
+        try {
+            $this->getGoogleReviews([Input::get('id')]);
+        } catch (ClientExceptionInterface|DecodingExceptionInterface|RedirectionExceptionInterface|ServerExceptionInterface|TransportExceptionInterface) {
+            // Noop
+        }
+
         Controller::redirect(System::getReferer());
     }
 

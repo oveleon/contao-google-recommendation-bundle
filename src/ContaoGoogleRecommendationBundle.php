@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of Oveleon Google Recommendation Bundle.
  *
@@ -8,12 +10,14 @@
 
 namespace Oveleon\ContaoGoogleRecommendationBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
-class ContaoGoogleRecommendationBundle extends Bundle
+class ContaoGoogleRecommendationBundle extends AbstractBundle
 {
-    public function getPath(): string
+    public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
-        return \dirname(__DIR__);
+        $container->import('../config/services.yaml');
     }
 }

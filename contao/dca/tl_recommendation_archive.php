@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of Oveleon Google Recommendation Bundle.
  *
@@ -53,10 +55,7 @@ $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['googlePlaceId'] = [
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['syncLanguage'] = [
     'exclude'                 => true,
     'inputType'               => 'select',
-	'options_callback' => static function ()
-	{
-		return array_keys($GLOBALS['TL_LANG']['tl_recommendation_languages']);
-	},
+	'options_callback'        => static fn() => array_keys($GLOBALS['TL_LANG']['tl_recommendation_languages'] ?? []),
 	'reference'				  => &$GLOBALS['TL_LANG']['tl_recommendation_languages'],
     'eval'                    => ['doNotCopy'=>true, 'includeBlankOption'=>true, 'chosen'=>true,'tl_class'=>'w50'],
     'sql'                     => "varchar(5) NOT NULL default ''"

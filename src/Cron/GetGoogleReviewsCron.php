@@ -11,17 +11,23 @@ declare(strict_types=1);
 namespace Oveleon\ContaoGoogleRecommendationBundle\Cron;
 
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCronJob;
-use Contao\CoreBundle\Framework\ContaoFramework;
 use Oveleon\ContaoGoogleRecommendationBundle\GooglePlacesApi;
-use Psr\Log\LoggerInterface;
+use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
 #[AsCronJob('daily')]
 class GetGoogleReviewsCron
 {
-    public function __construct(private ContaoFramework $framework, private LoggerInterface|null $logger)
-    {
-    }
-
+    /**
+     * @throws TransportExceptionInterface
+     * @throws ServerExceptionInterface
+     * @throws RedirectionExceptionInterface
+     * @throws DecodingExceptionInterface
+     * @throws ClientExceptionInterface
+     */
     public function __invoke(): void
     {
         (new GooglePlacesApi)->getGoogleReviews();
