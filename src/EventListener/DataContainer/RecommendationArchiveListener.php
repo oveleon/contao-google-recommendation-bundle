@@ -21,8 +21,8 @@ class RecommendationArchiveListener
      */
     public function addSyncButton(array $row, string $href, string $label, string $title, string $icon, string $attributes): string
     {
-        if (!$row['syncWithGoogle'])
-        {;
+        if (!isset($row['syncWithGoogle']))
+        {
             return Image::getHtml('bundles/contaogooglerecommendation/icons/sync_disabled.svg', $label);
         }
 
