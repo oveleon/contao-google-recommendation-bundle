@@ -53,6 +53,34 @@
         <source>Please select the import language &lt;a href=&quot;https://developers.google.com/maps/faq#languagesupport&quot; title=&quot;Machine translated&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Machine translation by Google)&lt;/a&gt;.</source>
         <target>Bitte wählen Sie die Importsprache &lt;a href=&quot;https://developers.google.com/maps/faq#languagesupport&quot; title=&quot;Maschinelle Übersetzung&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Maschinelle Übersetzung durch Google)&lt;/a&gt;.</target>
       </trans-unit>
+      <trans-unit id="tl_recommendation_archive.syncInterval.0">
+        <source>Sync interval</source>
+        <target>Synchronisierungs-Intervall</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.syncInterval.1">
+        <source>Intervall, in welchem der Poorman Cron eine Synchronisierung durchführen soll.</source>
+        <target>Interval at which the Poorman Cron should perform a synchronisation.</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.sync_interval.3600">
+        <source>Hourly</source>
+        <target>Stündlich</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.sync_interval.86400">
+        <source>Daily</source>
+        <target>Täglich</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.sync_interval.604800">
+        <source>Weekly</source>
+        <target>Wöchentlich</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.sync_interval.2592000">
+        <source>Monthly</source>
+        <target>Monatlich</target>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.sync_interval.31536000">
+        <source>Yearly</source>
+        <target>Jährlich</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

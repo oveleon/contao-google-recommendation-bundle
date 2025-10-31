@@ -1,0 +1,4 @@
+recommendation_google:
+    sync:
+        success:        'Archive ID %id% was synced'
+        failure:        'Sync for Archive ID %id% failed. Reason:  %reason%'

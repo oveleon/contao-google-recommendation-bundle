@@ -12,24 +12,45 @@ namespace Oveleon\ContaoGoogleRecommendationBundle\Cron;
 
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCronJob;
 use Oveleon\ContaoGoogleRecommendationBundle\GooglePlacesApi;
-use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
-#[AsCronJob('daily')]
-class GetGoogleReviewsCron
+#[AsCronJob('minutely')]
+readonly class GetGoogleReviewsCron
 {
-    /**
-     * @throws TransportExceptionInterface
-     * @throws ServerExceptionInterface
-     * @throws RedirectionExceptionInterface
-     * @throws DecodingExceptionInterface
-     * @throws ClientExceptionInterface
-     */
+    public function __construct(
+        private GooglePlacesApi $googlePlacesApi,
+        private CacheInterface $cache,
+    ) {
+    }
+
     public function __invoke(): void
     {
-        (new GooglePlacesApi)->getGoogleReviews();
+        $archives = $this->googlePlacesApi->getSyncArchives();
+        $toSync = [];
+
+        foreach ($archives as $archiveId => $syncTime)
+        {
+            if (!$this->cache->getItem('recommendation_google_sync_' . $archiveId)->isHit())
+            {
+                $toSync[] = $archiveId;
+                $this->delayExecution($archiveId, $syncTime);
+            }
+        }
+
+        $this->googlePlacesApi->getGoogleReviews($toSync);
+    }
+
+    private function delayExecution(int|string $archiveId, int|null $syncTime): void
+    {
+        $syncTime ??= 86400;
+
+        $this->cache->get(
+            'recommendation_google_sync_' . $archiveId,
+            static function (ItemInterface $item) use ($syncTime): void
+            {
+                $item->expiresAfter($syncTime);
+            },
+        );
     }
 }

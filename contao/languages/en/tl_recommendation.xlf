@@ -16,12 +16,6 @@
       <trans-unit id="tl_recommendation.googleReviewUrl.1">
         <source>You can set the Google review url here.</source>
       </trans-unit>
-      <trans-unit id="tl_recommendation.archiveSyncSuccess">
-        <source>Archive ID %s was synced</source>
-      </trans-unit>
-      <trans-unit id="tl_recommendation.archiveSyncFailed">
-        <source>Sync for Archive ID %s failed. Reason: %s</source>
-      </trans-unit>
       <trans-unit id="tl_recommendation.publishedOn">
         <source>Published on</source>
       </trans-unit>
