@@ -14,7 +14,6 @@ use Contao\Controller;
 use Contao\System;
 use Contao\Input;
 use Contao\Message;
-use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
 use FOS\HttpCacheBundle\CacheManager;
 use Oveleon\ContaoRecommendationBundle\Model\RecommendationModel;

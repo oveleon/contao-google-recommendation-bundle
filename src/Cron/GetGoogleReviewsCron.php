@@ -10,9 +10,7 @@ declare(strict_types=1);
 
 namespace Oveleon\ContaoGoogleRecommendationBundle\Cron;
 
-use Contao\Config;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCronJob;
-use Doctrine\DBAL\Connection;
 use Oveleon\ContaoGoogleRecommendationBundle\GooglePlacesApi;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;
