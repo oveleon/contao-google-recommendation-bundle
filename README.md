@@ -85,6 +85,10 @@ For a full setup, please look [here](https://github.com/oveleon/contao-recommend
     <td>Language</td>
     <td>Here you can select the imported language for your reviews. More information on Google: <a href="https://developers.google.com/maps/faq#languagesupport">Language Support</a></td>
   </tr>
+ <tr>
+    <td>Sync interval</td>
+    <td>The interval of the synchronisation to the places api. Defaults: to 1 Day.</td>
+  </tr>
 </table>
 
 ![Admin View: Recommendation Reader](https://www.oveleon.de/share/github-assets/contao-google-recommendation-bundle/recommendationGoogleArchive.jpg)
@@ -113,6 +117,18 @@ Also make sure that your API-Key for the Places-API is usable by your server (IP
 For billing issues, make sure that you have to verify your payment method via https://payments.google.com/gp/w/home/paymentmethods as well.
 
 > Any issues regarding setting up the Google API will be closed without an answer. Please read the google docs.
+
+### Commands
+
+Syncs all archives. **Bypasses the setup sync interval**.
+```shell
+bin console recommendation:google-sync
+```
+
+Sync archive with ID 1
+```shell
+bin console recommendation:google-sync 1
+```
 
 ### Example
 
