@@ -19,15 +19,7 @@
       </trans-unit>
       <trans-unit id="tl_recommendation.googleReviewUrl.1">
         <source>You can set the Google review url here.</source>
-        <target>Hier kann die Google Bewerungs-URL hinterlegt werden.</target>
-      </trans-unit>
-      <trans-unit id="tl_recommendation.archiveSyncSuccess">
-        <source>Archive ID %s was synced</source>
-        <target>Archiv ID %s wurde synchronisiert</target>
-      </trans-unit>
-      <trans-unit id="tl_recommendation.archiveSyncFailed">
-        <source>Sync for Archive ID %s failed. Reason: %s</source>
-        <target>Synchronisation für Archiv ID %s fehlgeschlagen. Grund: %s</target>
+        <target>Hier kann die Google Bewertungs-URL hinterlegt werden.</target>
       </trans-unit>
       <trans-unit id="tl_recommendation.publishedOn">
         <source>Published on</source>
