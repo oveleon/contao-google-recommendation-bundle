@@ -61,8 +61,18 @@ $GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['syncLanguage'] = [
     'sql'                     => "varchar(5) NOT NULL default ''"
 ];
 
+$GLOBALS['TL_DCA']['tl_recommendation_archive']['fields']['syncInterval'] = [
+    'exclude'                 => true,
+    'default'                 => 86400,
+    'inputType'               => 'select',
+    'options'                 => [3600, 86400, 604800, 2592000, 31536000],
+    'reference'               => &$GLOBALS['TL_LANG']['tl_recommendation_archive']['sync_interval'],
+    'eval'                    => ['mandatory'=>true, 'tl_class'=>'w50'],
+    'sql'                     => "int(10) unsigned NOT NULL default 86400"
+];
+
 $GLOBALS['TL_DCA']['tl_recommendation_archive']['palettes']['__selector__'][]    = 'syncWithGoogle';
-$GLOBALS['TL_DCA']['tl_recommendation_archive']['subpalettes']['syncWithGoogle'] = 'googleApiToken,googlePlaceId,syncLanguage';
+$GLOBALS['TL_DCA']['tl_recommendation_archive']['subpalettes']['syncWithGoogle'] = 'googleApiToken,googlePlaceId,syncLanguage,syncInterval';
 
 // Extend the default palette
 PaletteManipulator::create()

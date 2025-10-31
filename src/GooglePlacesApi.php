@@ -42,23 +42,30 @@ class GooglePlacesApi
 
     public function getGoogleReviews(array|null $ids = null): void
     {
-        $queryBuilder = $this->connection->createQueryBuilder();
-        $queryBuilder->select('id')->from('tl_recommendation_archive')->andWhere('syncWithGoogle = 1');
+        $ids ??= array_keys($this->getSyncArchives());
 
-        if (null !== $ids) {
-            $queryBuilder->andWhere('id IN (:archiveIds)')->setParameter('archiveIds', $ids, ArrayParameterType::STRING);
-        }
-
-        if ([] === ($archiveIds = $queryBuilder->fetchAllAssociative())) {
-            return;
-        }
-
-        foreach (RecommendationArchiveModel::findMultipleByIds($archiveIds) as $archive)
+        foreach (RecommendationArchiveModel::findMultipleByIds($ids) as $archive)
             $this->syncArchive($archive);
+    }
+
+    public function getSyncArchives(): array
+    {
+        $archives = $this->connection->createQueryBuilder()
+            ->select('id', 'syncInterval')
+            ->from('tl_recommendation_archive')
+            ->andWhere('syncWithGoogle = 1')
+            ->fetchAllAssociative()
+        ;
+
+        return array_column($archives, 'syncInterval', 'id');
     }
 
     public function syncArchive(RecommendationArchiveModel $archive): void
     {
+        if (!$archive->syncWithGoogle) {
+            return;
+        }
+
         $arrParams = [
             'reviews_sort' => 'newest',
             'fields'       => 'reviews',

@@ -40,6 +40,27 @@
       <trans-unit id="tl_recommendation_archive.syncLanguage.1">
         <source>Please select the import language &lt;a href=&quot;https://developers.google.com/maps/faq#languagesupport&quot; title=&quot;Machine translated&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot; style=&quot;text-decoration:underline;&quot;&gt;(Machine translation by Google)&lt;/a&gt;.</source>
       </trans-unit>
+      <trans-unit id="tl_recommendation_archive.syncInterval.0">
+        <source>Sync interval</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.syncInterval.1">
+        <source>Intervall, in welchem der Poorman Cron eine Synchronisierung durchführen soll.</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.sync_interval.3600">
+        <source>Hourly</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.sync_interval.86400">
+        <source>Daily</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.sync_interval.604800">
+        <source>Weekly</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.sync_interval.2592000">
+        <source>Monthly</source>
+      </trans-unit>
+      <trans-unit id="tl_recommendation_archive.sync_interval.31536000">
+        <source>Yearly</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
