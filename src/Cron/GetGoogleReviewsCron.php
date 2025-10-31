@@ -10,26 +10,41 @@ declare(strict_types=1);
 
 namespace Oveleon\ContaoGoogleRecommendationBundle\Cron;
 
+use Contao\Config;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCronJob;
 use Oveleon\ContaoGoogleRecommendationBundle\GooglePlacesApi;
-use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
-use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
-#[AsCronJob('daily')]
-class GetGoogleReviewsCron
+#[AsCronJob('minutely')]
+readonly class GetGoogleReviewsCron
 {
-    /**
-     * @throws TransportExceptionInterface
-     * @throws ServerExceptionInterface
-     * @throws RedirectionExceptionInterface
-     * @throws DecodingExceptionInterface
-     * @throws ClientExceptionInterface
-     */
+    public function __construct(
+        private GooglePlacesApi $googlePlacesApi,
+        private CacheInterface $cache,
+    ) {
+    }
+
     public function __invoke(): void
     {
-        (new GooglePlacesApi)->getGoogleReviews();
+        if ($this->cache->getItem('recommendation_google_sync')->isHit())
+        {
+            return;
+        }
+
+        $this->googlePlacesApi->getGoogleReviews();
+
+        $this->delayExecution();
+    }
+
+    private function delayExecution(): void
+    {
+        $this->cache->get(
+            'recommendation_google_sync',
+            static function (ItemInterface $item): void
+            {
+                $item->expiresAfter((int) (Config::get('recommendation_sync_interval') ?? 86400));
+            },
+        );
     }
 }
