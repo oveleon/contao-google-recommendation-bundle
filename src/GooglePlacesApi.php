@@ -43,7 +43,13 @@ class GooglePlacesApi
     {
         $ids ??= array_keys($this->getSyncArchives());
 
-        foreach (RecommendationArchiveModel::findMultipleByIds($ids) ?? [] as $archive)
+        $archives = RecommendationArchiveModel::findMultipleByIds($ids);
+
+        if (null === $archives) {
+            return;
+        }
+
+        foreach ($archives as $archive)
             $this->syncArchive($archive);
     }
 
