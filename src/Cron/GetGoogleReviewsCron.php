@@ -26,6 +26,9 @@ readonly class GetGoogleReviewsCron
 
     public function __invoke(): void
     {
+        // Prevent Contao\Message from being used, as there is no session in a cron context
+        $this->googlePlacesApi->cron = true;
+
         $archives = $this->googlePlacesApi->getSyncArchives();
         $toSync = [];
 
